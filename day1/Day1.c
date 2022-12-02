@@ -30,11 +30,7 @@ int update_ranking(Ranking* ranking, long int comparison) {
         else if (comparison > ranking->third) {
             ranking->third = comparison;
         }
-
-        return 1;
     }
-
-    return 0;
 }
 
 int main() {
@@ -46,20 +42,20 @@ int main() {
 
     file = fopen("day1_input.txt", "r");
     if (!file) {
-        perror("Error opening file exiting");
+        perror("Error opening file!");
         return 0;
     }
 
     init_ranking(&rank);
 
+    //reads until EOF
     while (fgets(chunk, 10, file)) {
         if (chunk[0] == '\n'){
             update_ranking(&rank, curr_calories);
             curr_calories = 0;
         }
-        else {
+        else 
             curr_calories += strtol(chunk, 0, 10);
-        }
     }
 
     update_ranking(&rank, curr_calories);
