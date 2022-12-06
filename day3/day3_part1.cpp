@@ -8,7 +8,7 @@
 int compare(std::unordered_map<int, int> *ascii, char arr[2][30], int len) {
     for (int i = 0; i < len; i++) {
         for (int j = 0; j < len + 1; j++) {
-            if (arr[0][i] == arr[1][j]) {
+            if (arr[0][i] == arr[1][i]) {
                 auto it = ascii->find((int)arr[0][i]);
                 return it->second;
             }
